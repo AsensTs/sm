@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="sm-coupon" />
+        <module name="cloud" />
+        <module name="sm-order" />
+        <module name="sm-member" />
+        <module name="sm" />
+        <module name="renren-fast" />
+        <module name="sm-common" />
+        <module name="sm-cloud" />
+        <module name="sm-ware" />
+        <module name="renren-generator" />
+        <module name="sm-product" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="cloud" options="-parameters" />
+      <module name="renren-fast" options="-parameters" />
+      <module name="renren-generator" options="-parameters" />
+      <module name="sm" options="-parameters" />
+      <module name="sm-common" options="-parameters" />
+      <module name="sm-coupon" options="-parameters" />
+      <module name="sm-member" options="-parameters" />
+      <module name="sm-order" options="-parameters" />
+      <module name="sm-product" options="-parameters" />
+      <module name="sm-ware" options="-parameters" />
+    </option>
+  </component>
+</project>
