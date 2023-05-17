@@ -21,7 +21,7 @@ public class MongoTableInfoAdaptor {
      * @param names 表名
      */
     public static List<Map<String, String>> tableInfo(List<String> names) {
-        List<Map<String, String>> result = new ArrayList<Map<String, String>>(names.size());
+        List<Map<String, String>> result = new ArrayList<>(names.size());
         for (String name : names) {
             result.add(tableInfo(name));
         }
@@ -29,7 +29,7 @@ public class MongoTableInfoAdaptor {
     }
 
     public static Map<String, String> tableInfo(String name) {
-        Map<String, String> tableInfo = new HashMap<String, String>(4 * 4 / 3 + 1);
+        Map<String, String> tableInfo = new HashMap<>(4 * 4 / 3 + 1);
         tableInfo.put("engine", "mongo无引擎");
         tableInfo.put("createTime", "mongo无法查询创建时间");
         tableInfo.put("tableComment", "mongo无备注");

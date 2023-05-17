@@ -294,8 +294,7 @@ public class MongoScanner {
             }
         }
     }
-
-    public <T> List<T> mergeList(List<T> list1, List<T> list2) {
+    public  <T> List<T> mergeList(List<T> list1, List<T> list2){
         list1.addAll(list2);
         return list1;
     }
