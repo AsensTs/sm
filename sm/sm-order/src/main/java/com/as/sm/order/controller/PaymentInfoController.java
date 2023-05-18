@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.as.sm.order.entity.PaymentInfoEntity;
 import com.as.sm.order.service.PaymentInfoService;
-import com.as.common.utils.PageUtils;
-import com.as.common.utils.R;
+import com.as.sm.common.utils.PageUtils;
+import com.as.sm.common.utils.R;
 
 
 
@@ -22,8 +22,8 @@ import com.as.common.utils.R;
  * 支付信息表
  *
  * @author asens
- * @email sunlightcs@gmail.com
- * @date 2023-05-17 17:50:37
+ * @email asensts@163.com
+ * @date 2023-05-18 16:55:17
  */
 @RestController
 @RequestMapping("order/paymentinfo")

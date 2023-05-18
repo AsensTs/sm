@@ -12,8 +12,8 @@ import lombok.Data;
  * 支付信息表
  * 
  * @author asens
- * @email sunlightcs@gmail.com
- * @date 2023-05-17 17:50:37
+ * @email asensts@163.com
+ * @date 2023-05-18 16:55:17
  */
 @Data
 @TableName("oms_payment_info")

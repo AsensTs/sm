@@ -11,8 +11,8 @@ import lombok.Data;
  * 会员
  * 
  * @author asens
- * @email sunlightcs@gmail.com
- * @date 2023-05-17 17:41:04
+ * @email asensts@163.com
+ * @date 2023-05-18 16:50:09
  */
 @Data
 @TableName("ums_member")

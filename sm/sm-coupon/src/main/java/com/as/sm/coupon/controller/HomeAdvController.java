@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.as.sm.coupon.entity.HomeAdvEntity;
 import com.as.sm.coupon.service.HomeAdvService;
-import io.renren.common.utils.PageUtils;
-import io.renren.common.utils.R;
+import com.as.sm.common.utils.PageUtils;
+import com.as.sm.common.utils.R;
 
 
 

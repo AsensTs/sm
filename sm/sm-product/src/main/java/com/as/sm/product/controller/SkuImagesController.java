@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.as.sm.product.entity.SkuImagesEntity;
 import com.as.sm.product.service.SkuImagesService;
-import com.as.common.utils.PageUtils;
-import com.as.common.utils.R;
+import com.as.sm.common.utils.PageUtils;
+import com.as.sm.common.utils.R;
 
 
 
@@ -22,8 +22,8 @@ import com.as.common.utils.R;
  * sku图片
  *
  * @author asens
- * @email sunlightcs@gmail.com
- * @date 2023-05-17 17:53:18
+ * @email asensts@163.com
+ * @date 2023-05-18 16:58:56
  */
 @RestController
 @RequestMapping("product/skuimages")

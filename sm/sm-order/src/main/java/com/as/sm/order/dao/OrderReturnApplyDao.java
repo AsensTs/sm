@@ -8,8 +8,8 @@ import org.apache.ibatis.annotations.Mapper;
  * 订单退货申请
  * 
  * @author asens
- * @email sunlightcs@gmail.com
- * @date 2023-05-17 17:50:37
+ * @email asensts@163.com
+ * @date 2023-05-18 16:55:16
  */
 @Mapper
 public interface OrderReturnApplyDao extends BaseMapper<OrderReturnApplyEntity> {

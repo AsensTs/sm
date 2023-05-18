@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.as.sm.coupon.entity.CouponEntity;
 import com.as.sm.coupon.service.CouponService;
-import io.renren.common.utils.PageUtils;
-import io.renren.common.utils.R;
+import com.as.sm.common.utils.PageUtils;
+import com.as.sm.common.utils.R;
 
 
 

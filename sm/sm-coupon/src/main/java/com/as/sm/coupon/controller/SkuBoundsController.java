@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.as.sm.coupon.entity.SkuBoundsEntity;
 import com.as.sm.coupon.service.SkuBoundsService;
-import io.renren.common.utils.PageUtils;
-import io.renren.common.utils.R;
+import com.as.sm.common.utils.PageUtils;
+import com.as.sm.common.utils.R;
 
 
 

@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.as.sm.ware.entity.WareOrderTaskDetailEntity;
 import com.as.sm.ware.service.WareOrderTaskDetailService;
-import com.as.common.utils.PageUtils;
-import com.as.common.utils.R;
+import com.as.sm.common.utils.PageUtils;
+import com.as.sm.common.utils.R;
 
 
 
@@ -23,7 +23,7 @@ import com.as.common.utils.R;
  *
  * @author asens
  * @email asensts@163.com
- * @date 2023-05-17 17:54:49
+ * @date 2023-05-18 17:01:08
  */
 @RestController
 @RequestMapping("ware/wareordertaskdetail")

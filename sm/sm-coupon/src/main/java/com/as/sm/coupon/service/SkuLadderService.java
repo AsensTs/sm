@@ -1,7 +1,7 @@
 package com.as.sm.coupon.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import io.renren.common.utils.PageUtils;
+import com.as.sm.common.utils.PageUtils;
 import com.as.sm.coupon.entity.SkuLadderEntity;
 
 import java.util.Map;

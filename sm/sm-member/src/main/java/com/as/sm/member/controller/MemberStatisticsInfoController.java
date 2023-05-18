@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.as.sm.member.entity.MemberStatisticsInfoEntity;
 import com.as.sm.member.service.MemberStatisticsInfoService;
-import io.renren.common.utils.PageUtils;
-import io.renren.common.utils.R;
+import com.as.sm.common.utils.PageUtils;
+import com.as.sm.common.utils.R;
 
 
 
@@ -22,8 +22,8 @@ import io.renren.common.utils.R;
  * 会员统计信息
  *
  * @author asens
- * @email sunlightcs@gmail.com
- * @date 2023-05-17 17:41:04
+ * @email asensts@163.com
+ * @date 2023-05-18 16:50:09
  */
 @RestController
 @RequestMapping("member/memberstatisticsinfo")
