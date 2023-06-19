@@ -11,18 +11,27 @@
         <module name="cloud" />
         <module name="sm-order" />
         <module name="sm-member" />
-        <module name="renren-fast" />
         <module name="sm-common" />
         <module name="sm-cloud" />
         <module name="sm-ware" />
-        <module name="renren-generator" />
         <module name="sm-product" />
       </profile>
+      <profile name="Annotation profile for sm" enabled="true">
+        <sourceOutputDir name="../target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="renren-fast" />
+        <module name="renren-generator" />
+      </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="config" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="cloud" options="-parameters" />
+      <module name="config" options="-parameters" />
       <module name="renren-fast" options="-parameters" />
       <module name="renren-generator" options="-parameters" />
       <module name="sm" options="-parameters" />

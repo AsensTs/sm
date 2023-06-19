@@ -3,6 +3,7 @@ package com.as.sm.member.controller;
 import java.util.Arrays;
 import java.util.Map;
 
+import com.as.sm.member.feign.CouponFeignService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,6 +31,16 @@ import com.as.sm.common.utils.R;
 public class MemberController {
     @Autowired
     private MemberService memberService;
+
+    @Autowired
+    private CouponFeignService couponFeignService;
+
+    @RequestMapping("/coupon/list")
+    public R getCouponList() {
+        R couponList = couponFeignService.getCouponList();
+        Object page = couponList.get("page");
+        return R.ok().put("page", page);
+    }
 
     /**
      * 列表

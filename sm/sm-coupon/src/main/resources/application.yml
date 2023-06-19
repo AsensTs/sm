@@ -11,8 +11,12 @@ spring:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yml
+
   application:
-    name: SmWareApplication
+    name: SmCouponApplication
 
 mybatis-plus:
   mapper-locations: classpath:/mapper/**/*.xml
