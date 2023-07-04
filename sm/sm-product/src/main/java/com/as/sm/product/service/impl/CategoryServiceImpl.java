@@ -1,11 +1,13 @@
 package com.as.sm.product.service.impl;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -36,6 +38,15 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
     @Override
     public List<CategoryEntity> getAllCategory() {
         List<CategoryEntity> categoryEntities = baseMapper.selectList(null);
-        return categoryEntities;
+        List<CategoryEntity> firstMenus = categoryEntities.stream()
+                .filter(item -> item.getParentCid() == (0))
+                .peek(menu -> menu.setChildren(getChildren(menu, categoryEntities)))
+                .collect(Collectors.toList());
+        return firstMenus;
+    }
+
+    private List<CategoryEntity> getChildren(CategoryEntity menu, List<CategoryEntity> categoryEntities) {
+        List<CategoryEntity> children = categoryEntities.stream().filter(item -> menu.getCatId() == item.getParentCid()).collect(Collectors.toList());
+        return children;
     }
 }
