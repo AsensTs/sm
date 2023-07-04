@@ -8,7 +8,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="sm-coupon" />
-        <module name="cloud" />
         <module name="sm-order" />
         <module name="sm-member" />
         <module name="sm-common" />
