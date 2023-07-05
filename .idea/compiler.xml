@@ -10,12 +10,13 @@
         <module name="sm-coupon" />
         <module name="sm-order" />
         <module name="sm-member" />
+        <module name="sm-fast" />
         <module name="sm-common" />
         <module name="sm-cloud" />
         <module name="sm-ware" />
         <module name="sm-product" />
       </profile>
-      <profile name="Annotation profile for sm" enabled="true">
+      <profile name="Annotation profile for renren-generator" enabled="true">
         <sourceOutputDir name="../target/generated-sources/annotations" />
         <sourceTestOutputDir name="../target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -36,6 +37,7 @@
       <module name="sm" options="-parameters" />
       <module name="sm-common" options="-parameters" />
       <module name="sm-coupon" options="-parameters" />
+      <module name="sm-fast" options="-parameters" />
       <module name="sm-member" options="-parameters" />
       <module name="sm-order" options="-parameters" />
       <module name="sm-product" options="-parameters" />
