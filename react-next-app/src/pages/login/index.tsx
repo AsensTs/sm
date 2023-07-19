@@ -11,6 +11,10 @@ const onFinishFailed = (errorInfo: any) => {
 };
 
 const Login: React.FC = () => {
+    let wrapperCol = {
+        offset: 6,
+        span: 18
+    }
     return (
         <div className="login-page">
             <div>
@@ -21,37 +25,36 @@ const Login: React.FC = () => {
                     <Form
                         className="form"
                         name="basic"
-                        labelCol={{ span: 8 }}
-                        wrapperCol={{ span: 16 }}
-                        style={{ maxWidth: 600 }}
+                        labelCol={{ span: wrapperCol.offset }}
+                        wrapperCol={{ span: wrapperCol.span }}
                         initialValues={{ remember: true }}
                         onFinish={onFinish}
                         onFinishFailed={onFinishFailed}
                         autoComplete="off"
                     >
                         <Form.Item
-                            label="Username"
+                            label="用户名"
                             name="username"
                             rules={[{ required: true, message: 'Please input your username!' }]}
                         >
-                            <Input />
+                            <Input size="large"/>
                         </Form.Item>
 
                         <Form.Item
-                            label="Password"
+                            label="密 码"
                             name="password"
                             rules={[{ required: true, message: 'Please input your password!' }]}
                         >
-                            <Input.Password />
+                            <Input.Password  size="large"/>
                         </Form.Item>
 
-                        <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
+                        <Form.Item name="remember" valuePropName="checked" wrapperCol={wrapperCol}>
                             <Checkbox>Remember me</Checkbox>
                         </Form.Item>
 
-                        <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+                        <Form.Item wrapperCol={wrapperCol}>
                             <Button type="primary" htmlType="submit">
-                                Submit
+                                登录
                             </Button>
                         </Form.Item>
                     </Form>
