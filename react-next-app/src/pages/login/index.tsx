@@ -1,9 +1,21 @@
 import "./login.scss"
 import "@/common/styles/global.scss"
-import { Button, Checkbox, Form, Input } from 'antd';
+import { useRouter } from "next/router";
+import http from "@/common/utils/http.js"
+import { Button, Checkbox, Form, Input, message } from 'antd';
+import { useEffect } from "react";
 
-const onFinish = (values: any) => {
-    console.log('Success:', values);
+
+const onFinish = async (values: any, router: any) => {
+    try {
+        let res = await http.post("/login", values);
+        if (res.code == 200) {
+            message.success("登录成功！");
+            router.push("/");
+        }
+    } catch (error) {
+        throw error;
+    }
 };
 
 const onFinishFailed = (errorInfo: any) => {
@@ -11,24 +23,26 @@ const onFinishFailed = (errorInfo: any) => {
 };
 
 const Login: React.FC = () => {
+    
+    const router = useRouter();
     let wrapperCol = {
         offset: 6,
-        span: 18
+        span: 14
     }
     return (
-        <div className="login-page">
+        <div className="login_page">
             <div>
-                <div className="login-title">
+                <div className="login_title">
                     <p className="title">登录界面</p>
                 </div>
-                <div className="login-form">
+                <div className="login_form">
                     <Form
                         className="form"
                         name="basic"
                         labelCol={{ span: wrapperCol.offset }}
                         wrapperCol={{ span: wrapperCol.span }}
                         initialValues={{ remember: true }}
-                        onFinish={onFinish}
+                        onFinish={(values) => onFinish(values, router)}
                         onFinishFailed={onFinishFailed}
                         autoComplete="off"
                     >
@@ -64,4 +78,4 @@ const Login: React.FC = () => {
     )
 }
 
-export default Login
+export default Login 
