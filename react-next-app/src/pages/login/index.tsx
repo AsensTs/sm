@@ -8,7 +8,7 @@ import { useEffect } from "react";
 
 const onFinish = async (values: any, router: any) => {
     try {
-        let res = await http.post("/login", values);
+        let res = await http.post("/api/login", values);
         if (res.code == 200) {
             message.success("登录成功！");
             router.push("/");
