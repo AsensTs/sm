@@ -8,6 +8,7 @@ import {
   VideoCameraOutlined,
 } from '@ant-design/icons';
 import { Layout, Menu, Button, theme } from 'antd';
+import LayoutStyle from "./layout.module.scss"
 
 const { Header, Sider, Content } = Layout;
 
@@ -19,24 +20,20 @@ const App: React.FC<LayoutProps> = ({ children }: any) => {
   const [collapsed, setCollapsed] = useState(false);
 
   return (
-    <Layout>
-      <Sider trigger={null} collapsible collapsed={collapsed}>
+    <Layout className={LayoutStyle.layout}>
+      <Sider className={LayoutStyle.sider} trigger={null} collapsible collapsed={collapsed}>
         <div className="demo-logo-vertical" />
       </Sider>
       <Layout>
-        <Header style={{ padding: 0 }}>
+        <Header className={LayoutStyle.header} style={{ padding: 0 }}>
           <Button
+            className={LayoutStyle.toggle}
             type="text"
             icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
             onClick={() => setCollapsed(!collapsed)}
-            style={{
-              fontSize: '16px',
-              width: 64,
-              height: 64,
-            }}
           />
         </Header>
-        <Content style={{ margin: '24px 16px', padding: 24, minHeight: 280 }}>
+        <Content className={LayoutStyle.main} style={{ margin: '24px 16px', padding: 24, minHeight: 280 }}>
             {children}
         </Content>
       </Layout>
