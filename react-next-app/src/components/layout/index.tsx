@@ -1,25 +1,25 @@
 'use client'
 import React, { useState } from 'react';
-import {
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-} from '@ant-design/icons';
-import { Layout, Menu, Button, theme } from 'antd';
+import { MenuFoldOutlined, MenuUnfoldOutlined,} from '@ant-design/icons';
+import Menus from "@/components/menus"
+import { Layout, Button } from 'antd';
 import LayoutStyle from "./layout.module.scss"
 
 const { Header, Sider, Content } = Layout;
 
 interface LayoutProps {
-    children: any
+  children: any
 }
 
 const App: React.FC<LayoutProps> = ({ children }: any) => {
+  
   const [collapsed, setCollapsed] = useState(false);
 
   return (
     <Layout className={LayoutStyle.layout}>
       <Sider className={LayoutStyle.sider} trigger={null} collapsible collapsed={collapsed}>
         <div className="demo-logo-vertical" />
+        <Menus></Menus>
       </Sider>
       <Layout>
         <Header className={LayoutStyle.header} style={{ padding: 0 }}>
