@@ -93,7 +93,7 @@ const Login: React.FC = () => {
                     </Form>
                 </div>
 
-                <Modal title="注册账号" open={isModalOpen} onCancel={() => setIsModalOpen(false)} footer={[]}>
+                <Modal title="注册账号" width={600} open={isModalOpen} onCancel={() => setIsModalOpen(false)} footer={[]}>
                     <div className={loginStyle.register_modal} >
                         <Form
                             name="nest-messages"
