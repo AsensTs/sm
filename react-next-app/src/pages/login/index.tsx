@@ -98,6 +98,8 @@ const Login: React.FC = () => {
                         <Form
                             name="nest-messages"
                             onFinish={onRegisterFinish}
+                            labelCol={{ span: wrapperCol.offset }}
+                            wrapperCol={{ span: wrapperCol.span }}
                             autoComplete="off"
                         >
                             <Form.Item label="账 号" name="username" rules={[{ required: true, message: 'Please input your username!' }]}>
@@ -112,9 +114,9 @@ const Login: React.FC = () => {
                             <Form.Item label="手机号码" name="mobile" rules={[{ required: true },{ type: 'string', min: 11 }]}>
                                 <Input />
                             </Form.Item>
-                            <Form.Item>
+                            <Form.Item wrapperCol={wrapperCol}>
                                 <Button type="default">清空</Button>
-                                <Button type="primary" htmlType="submit">提交</Button>
+                                <Button type="primary" htmlType="submit" style={{marginLeft: '10px'}}>提交</Button>
                             </Form.Item>
                         </Form>
                     </div>
