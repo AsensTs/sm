@@ -25,8 +25,19 @@ const onFinishFailed = (errorInfo: any) => {
     console.log('Failed:', errorInfo);
 };
 
-const registerUser = (values: any) => {
-
+const registerUser = async (values: any, fn: Function) => {
+    try {
+        let res = await http.post("/api/register", values);
+        if (res.code == 200) {
+            message.success("注册成功！");
+            fn(false);
+        } else {
+            message.success("注册失败！");
+        }
+    } catch (error) {
+        message.success("注册失败！");
+        throw error;
+    }
 }
 
 
@@ -41,13 +52,17 @@ const Login: React.FC = () => {
 
     // 打开注册窗口
     const onRegister = () => {
-        setIsModalOpen(true);
+        customSetIsModalOpen(true);
     }
 
     // 注册确认并关闭窗口
     const onRegisterFinish = (values: any) => {
-        setIsModalOpen(true);
-        registerUser(values)
+        registerUser(values, customSetIsModalOpen)
+    }
+    
+    // 打开关闭窗口功能
+    const customSetIsModalOpen = (value: boolean) => {
+        setIsModalOpen(value);
     }
 
     return (
@@ -94,7 +109,7 @@ const Login: React.FC = () => {
                     </Form>
                 </div>
 
-                <Modal title="注册账号" width={600} open={isModalOpen} onCancel={() => setIsModalOpen(false)} footer={[]}>
+                <Modal className={loginStyle.modal} title="注册账号" width={600} open={isModalOpen} onCancel={() => setIsModalOpen(false)} footer={[]}>
                     <div className={loginStyle.register_modal} >
                         <Form
                             name="nest-messages"
