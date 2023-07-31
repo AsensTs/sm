@@ -12,13 +12,13 @@ public class UserDao {
      */
     private String username;
     /**
-     * 手机号
-     */
-    private String mobile;
-    /**
      * 密码
      */
     private String password;
+    /**
+     * 手机号
+     */
+    private String mobile;
     /**
      * 创建时间
      */

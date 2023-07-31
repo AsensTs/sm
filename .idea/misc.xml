@@ -16,6 +16,7 @@
         <option value="$PROJECT_DIR$/sm/sm-ware/pom.xml" />
         <option value="$PROJECT_DIR$/cloud/pom.xml" />
         <option value="$PROJECT_DIR$/sm/sm-fast/pom.xml" />
+        <option value="$PROJECT_DIR$/sm/sm-auth-server/pom.xml" />
       </list>
     </option>
   </component>
