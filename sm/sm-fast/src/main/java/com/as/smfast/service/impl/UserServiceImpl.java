@@ -1,5 +1,6 @@
 package com.as.smfast.service.impl;
 
+import com.as.smfast.dao.UserDao;
 import com.as.smfast.mapper.UserLoginMapper;
 import com.as.smfast.service.UserLoginService;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,7 @@ public class UserLoginServiceImpl implements UserLoginService {
 
     @Override
     public long login(Map<String, String> userInfo) {
-        userLoginMapper.loginByUser(userInfo);
+        UserDao userDao = userLoginMapper.loginByUser(userInfo);
         return 0;
     }
 }

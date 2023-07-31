@@ -5,15 +5,16 @@ import http from "@/common/utils/http.js"
 import { Button, Checkbox, Form, Input, message, Modal } from 'antd';
 import { useState } from "react";
 
-
 // 登录确认
 const onFinish = async (values: any, router: any) => {
     try {
-        debugger
         let res = await http.post("/api/login", values);
+        console.log(res);
         if (res.code == 200) {
             message.success("登录成功！");
             router.push("/");
+        } else {
+            message.error("登录失败！账号或密码错误。");
         }
     } catch (error) {
         throw error;
@@ -29,7 +30,7 @@ const registerUser = async (values: any, fn: Function) => {
     try {
         let res = await http.post("/api/register", values);
         if (res.code == 200) {
-            message.success("注册成功！");
+            message.success(res.message);
             fn(false);
         } else {
             message.success("注册失败！");
@@ -40,6 +41,27 @@ const registerUser = async (values: any, fn: Function) => {
     }
 }
 
+const checkUsername = async (value: any) => {
+    try {
+        let res = await http.post("/api/check", {
+            username: value
+        });
+        
+        if (res.code == 200) {
+            return res;
+        }
+    } catch (error) {
+        throw error;
+    }
+}
+
+const handleCheckUsername = async (rules: any, value: any, callback: any) => {
+    let res = await checkUsername(value);
+    if (!res.data) {
+        callback(new Error(res.message));
+    }
+    callback();
+}
 
 const Login: React.FC = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -118,8 +140,17 @@ const Login: React.FC = () => {
                             wrapperCol={{ span: wrapperCol.span }}
                             autoComplete="off"
                         >
-                            <Form.Item label="账 号" name="username" rules={[{ required: true, message: 'Please input your username!' }]}>
+                            <Form.Item 
+                                label="账 号" 
+                                name="username" 
+                                validateTrigger="onChange"
+                                rules={[
+                                    { required: true, message: 'Please input your username!' },
+                                    { validator:(rules,value,callback)=>{handleCheckUsername(rules,value,callback)} },
+                                ]}
+                            >
                                 <Input/>
+                                {/* <Input onChange={handleInputChange}/> */}
                             </Form.Item>
                             <Form.Item label="密 码" name="password" rules={[{ required: true },{ type: 'string', min: 6 }]}>
                                 <Input />

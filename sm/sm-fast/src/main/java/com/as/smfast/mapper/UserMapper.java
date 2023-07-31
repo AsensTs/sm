@@ -1,5 +1,6 @@
 package com.as.smfast.mapper;
 
+import com.as.smfast.dao.UserDao;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.Map;
@@ -8,5 +9,5 @@ import java.util.Map;
 public interface UserLoginMapper {
 
     // 登录
-    Long loginByUser(Map<String, String> userInfo);
+    UserDao loginByUser(Map<String, String> userInfo);
 }

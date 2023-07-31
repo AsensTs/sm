@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.as.smfast.mapper.UserLoginMapper">
-    <select id="loginByUser" parameterType="map" resultType="com.as.smfast.dao.UserDao">
-        select id,username,mobile,paddword,create_time by tb_user where username = ${username};
+    <select id="loginByUser" parameterType="java.util.Map" resultType="com.as.smfast.dao.UserDao">
+        select user_id,username,password,email,mobile,status,create_time from sys_user where username = #{username};
     </select>
 </mapper>
