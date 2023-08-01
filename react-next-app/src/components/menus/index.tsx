@@ -2,6 +2,7 @@ import { Menu } from 'antd';
 import React, { useState } from 'react';
 import type { MenuProps, MenuTheme } from 'antd';
 import menus from "@/config/menus"
+import { useRouter } from 'next/navigation';
 
 const openKey: any = []
 function getCurrentAndOpenKey(menus: any) {
@@ -16,12 +17,14 @@ function getCurrentAndOpenKey(menus: any) {
 }
 
 const Menus = (props: any) => {
+    const router = useRouter()
     let currentKey = getCurrentAndOpenKey(menus);
     const [current, setCurrent] = useState(currentKey);
     
 
     const onClick: MenuProps['onClick'] = (e) => {
         console.log('click ', e);
+        router.push(e.key)
         setCurrent(e.key);
     };
 
