@@ -7,22 +7,34 @@ import com.as.smfast.dao.UserDao;
 import com.as.smfast.service.UserService;
 
 import feign.Param;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 
 @RestController
+@RefreshScope(proxyMode = ScopedProxyMode.DEFAULT)
 public class UserController {
 
     @Resource
     private UserService userLoginService;
+
+    @Value("${config.msg}")
+    private String msg;
+    @GetMapping("/test")
+    private R test() {
+        System.out.println(msg);
+        return R.ok().put("msg", msg);
+    }
 
     @PostMapping("api/v1/login")
     private R login(@RequestBody Map<String, String> userInfo, HttpSession session) {

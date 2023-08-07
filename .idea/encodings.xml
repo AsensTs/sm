@@ -3,10 +3,13 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/sm/renren-fast/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/sm/renren-generator/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sm/sm-auth-server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/sm/sm-common/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/sm/sm-coupon/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/sm/sm-coupon/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/sm/sm-fast/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sm/sm-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sm/sm-gateway/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/sm/sm-member/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/sm/sm-member/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/sm/sm-order/src/main/java" charset="UTF-8" />
