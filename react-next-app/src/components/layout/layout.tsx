@@ -1,6 +1,6 @@
 import Layout from "./index";
 
-const isLayout = (path: String, hideLayoutPath: String[], component: any) => {
+const LayoutHoc = (path: String, hideLayoutPath: String[], component: any) => {
     if (hideLayoutPath.indexOf(path) == -1) {
         return (
             <Layout>
@@ -12,4 +12,4 @@ const isLayout = (path: String, hideLayoutPath: String[], component: any) => {
     return component;
 }
 
-export default isLayout
+export default LayoutHoc

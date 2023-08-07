@@ -1,4 +1,4 @@
-'use client'
+// "use client"
 import React, { useState } from 'react';
 import { MenuFoldOutlined, MenuUnfoldOutlined,} from '@ant-design/icons';
 import Menus from "@/components/menus"
