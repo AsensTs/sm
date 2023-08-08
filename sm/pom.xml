@@ -11,6 +11,7 @@
 
     <modules>
         <module>renren-fast</module>
+        <module>sm-fast</module>
         <module>sm-common</module>
         <module>sm-coupon</module>
         <module>sm-member</module>

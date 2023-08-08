@@ -23,33 +23,36 @@ public class R extends HashMap<String, Object> {
 
     public R() {
         put("code", 0);
-        put("msg", "success");
+        put("message", "success");
     }
 
     public static R error() {
         return error(HttpStatus.SC_INTERNAL_SERVER_ERROR, "未知异常，请联系管理员");
     }
 
-    public static R error(String msg) {
-        return error(HttpStatus.SC_INTERNAL_SERVER_ERROR, msg);
+    public static R error(String message) {
+        return error(HttpStatus.SC_INTERNAL_SERVER_ERROR, message);
     }
 
-    public static R error(int code, String msg) {
+    public static R error(int code, String message) {
         R r = new R();
         r.put("code", code);
-        r.put("msg", msg);
+        r.put("message", message);
         return r;
     }
 
-    public static R ok(String msg) {
+    public static R ok(String message) {
         R r = new R();
-        r.put("msg", msg);
+        r.put("code", 200);
+        r.put("message", message);
         return r;
     }
 
     public static R ok(Map<String, Object> map) {
         R r = new R();
-        r.putAll(map);
+        //r.putAll(map);
+        r.put("code", 200);
+        r.put("data", map);
         return r;
     }
 

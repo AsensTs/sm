@@ -8,6 +8,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="sm-coupon" />
+        <module name="sm-gateway" />
+        <module name="sm-auth-server" />
         <module name="sm-order" />
         <module name="sm-member" />
         <module name="sm-fast" />
@@ -35,9 +37,11 @@
       <module name="renren-fast" options="-parameters" />
       <module name="renren-generator" options="-parameters" />
       <module name="sm" options="-parameters" />
+      <module name="sm-auth-server" options="-parameters" />
       <module name="sm-common" options="-parameters" />
       <module name="sm-coupon" options="-parameters" />
       <module name="sm-fast" options="-parameters" />
+      <module name="sm-gateway" options="-parameters" />
       <module name="sm-member" options="-parameters" />
       <module name="sm-order" options="-parameters" />
       <module name="sm-product" options="-parameters" />
