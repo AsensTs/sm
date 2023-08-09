@@ -5,7 +5,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import React from "react";
 import { IndexFramework } from "../components/layout/IndexFramework";
-import "../styles/globals.css";
+import "@/common/styles/globals.css";
 import "antd/dist/antd.min.css";
 
 function MyAdmin({ Component, pageProps }: AppProps) {
@@ -24,7 +24,7 @@ function MyAdmin({ Component, pageProps }: AppProps) {
   const isLoginPage = router.pathname === "/login";
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="min-h-screen">
+      <div className="min-h-screen overflow-hidden">
         <Head>
           <title>Easy CMS</title>
           <meta name="description" content="this is an easy cms" />

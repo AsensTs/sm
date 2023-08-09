@@ -9,10 +9,7 @@
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "paths": {
-      "@/assets/*": ["assets/*"],
-      "@/components/*": ["components/*"],
-      "@/lib/*": ["lib/*"],
-      "@/*": ["./*"]
+      "@/*": ["./src/*"],
     },
     "esModuleInterop": true,
     "module": "esnext",

@@ -48,35 +48,85 @@ const getIcon = (iconName: string): ReactNode => {
 const MOKE_MENU: MenuItem[] = [
   {
     id: -1,
-    key: `/`,
-    label: `首页`,
+    key: "/",
+    label: "首页",
     icon: getIcon("icon-home"),
-    link: `/`,
-    type: `ORIGIN`,
+    link: "/",
+    type: "ORIGIN",
   },
   {
     id: 1,
-    key: `/authority`,
-    label: `权限管理`,
+    key: "/system",
+    label: "系统管理",
     icon: getIcon("icon-home"),
-    link: `/authority`,
-    type: `ORIGIN`,
+    link: "/system",
+    type: "ORIGIN",
     children: [
       {
-        id: 2,
-        key: `/authority/user`,
-        label: `用户管理`,
+        id: 1001,
+        key: "/system/admin",
+        label: "管理员列表",
         icon: getIcon("icon-nickname"),
-        link: `/authority/user`,
+        link: "/system/admin",
         type: "ORIGIN",
       },
       {
-        id: 3,
-        key: `/authority/role`,
-        label: `角色管理`,
+        id: 1002,
+        key: "/system/role",
+        label: "角色管理",
         icon: getIcon("icon-addresslist"), //React.createElement(TeamOutlined),
-        link: `/authority/role`,
-        type: `ORIGIN`,
+        link: "/system/role",
+        type: "ORIGIN",
+      },
+      {
+        id: 1003,
+        key: "/system/menus",
+        label: "菜单管理",
+        icon: getIcon("icon-addresslist"), //React.createElement(TeamOutlined),
+        link: "/system/menus",
+        type: "ORIGIN",
+      },
+      {
+        id: 1004,
+        key: "/system/sql",
+        label: "SQL监控",
+        icon: getIcon("icon-addresslist"), //React.createElement(TeamOutlined),
+        link: "/system/sql",
+        type: "ORIGIN",
+      },
+      {
+        id: 1005,
+        key: "/system/log",
+        label: "系统日志",
+        icon: getIcon("icon-addresslist"), //React.createElement(TeamOutlined),
+        link: "/system/log",
+        type: "ORIGIN",
+      },
+    ],
+  },
+  {
+    id: 2,
+    key: "/authority",
+    label: "权限管理",
+    icon: getIcon("icon-home"),
+    link: "/authority",
+    type: "ORIGIN",
+    children: [
+      {
+        id: 2001,
+        key: "/authority/user",
+        label: "用户管理",
+        icon: getIcon("icon-nickname"),
+        link: "/authority/user",
+        type: "ORIGIN",
+      },
+      {
+        id: 2002,
+        key: "/authority/role",
+        label: "角色管理",
+        icon: getIcon("icon-addresslist"), //React.createElement(TeamOutlined),
+        link: "/authority/role",
+        type: "ORIGIN",
       },
     ],
   },
@@ -88,15 +138,15 @@ interface NormalLayoutProps {
 
 const defaultOpenTab: TabItem[] = [
   {
-    key: `/`,
+    key: "/",
     title: "首页",
-    path: `/`,
+    path: "/",
     content: HomeIndex.call(this, {}, null),
   },
 ];
 
 export const IndexFramework: React.FC<NormalLayoutProps> = ({ children }) => {
-  console.log("children", children); // FIXME 渲染次数较多
+  // console.log("children", children); // FIXME 渲染次数较多
   const router = useRouter();
   const [collapsed, setCollapsed] = useState(false);
   const [openTab, setOpenTab] = useState<TabItem[]>(defaultOpenTab);
@@ -251,7 +301,7 @@ export const IndexFramework: React.FC<NormalLayoutProps> = ({ children }) => {
     <Layout className="h-screen">
       <Layout>
         <Sider
-          className="relative h-full w-[200] overflow-auto bg-gray-100"
+          className="relative h-full w-[200] bg-gray-100"
           trigger={null}
           collapsible
           collapsed={collapsed}
@@ -293,7 +343,7 @@ export const IndexFramework: React.FC<NormalLayoutProps> = ({ children }) => {
               <Avatar src="https://joeschmoe.io/api/v1/random" />
             </div>
           </Header>
-          <Content className="min-h-[280] w-full overflow-scroll scroll-smooth bg-white p-3">
+          <Content className="min-h-[280] w-full scroll-smooth bg-white p-3">
             <TabWindows
               activeTab={activeTab}
               openTab={openTab}

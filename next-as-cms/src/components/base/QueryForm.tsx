@@ -31,13 +31,13 @@ export function QueryForm<T>({
       form={form}
       labelAlign="right"
       labelWrap
-      labelCol={{ span: 8 }}
-      wrapperCol={{ span: 16 }}
+      labelCol={{ span: 6 }}
+      wrapperCol={{ span: 18 }}
       initialValues={{ remember: true }}
       onFinish={onFinish}
       autoComplete="off"
     >
-      <Row align={"middle"} justify={"start"} gutter={[1, 0]} wrap={true}>
+      <Row align={"middle"} justify={"start"} gutter={[1, 0]} wrap={true} className="flex items-center">
         <>
           {fields && fields.length > 0 ? (
             fields.map((field) => {
@@ -45,7 +45,7 @@ export function QueryForm<T>({
                 <Col span={6} key={`${id}_${field.name}`}>
                   {field.type === "input" && (
                     <>
-                      <Form.Item label={field.label} name={field.name}>
+                      <Form.Item label={field.label} name={field.name} style={{marginBottom: '0px'}}>
                         <Input />
                       </Form.Item>
                     </>
@@ -56,6 +56,7 @@ export function QueryForm<T>({
                         label={field.label}
                         name={field.name}
                         initialValue={field.selectDefaultSelected}
+                        style={{marginBottom: '0px'}}
                       >
                         <Select
                           options={field.selectOption}
@@ -73,7 +74,7 @@ export function QueryForm<T>({
           )}
         </>
 
-        <Col span={6} offset={1}>
+        <Col span={5} offset={1}>
           <Form.Item>
             <div className="flex">
               <Button type="primary" className="w-24" htmlType="submit" icon={<SearchOutlined />}>
