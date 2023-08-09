@@ -112,4 +112,6 @@ const MOKE_MENU: MenuItem[] = [
 ];
 
 
-export default MOKE_MENU;
+export {
+  MOKE_MENU
+}
