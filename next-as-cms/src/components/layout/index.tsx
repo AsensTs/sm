@@ -9,8 +9,7 @@ import { MenuInfo } from "rc-menu/lib/interface";
 import React, { ReactElement, ReactNode, useEffect, useState } from "react";
 import HomeIndex from "../../pages/index";
 import { TabWindows } from "../base/TabWindows";
-import Menus from "../menus";
-
+import MOKE_MENU from "@/config/menu-config"
 const { Header, Content, Sider } = Layout;
 
 type MenuType = "ORIGIN" | "THIRD"; // 内部 ｜ 第三方
@@ -72,6 +71,42 @@ export const IndexFramework: React.FC<NormalLayoutProps> = ({ children }) => {
   const [openMenu, setOpenMenu] = useState<string[]>([]);
   const [showMenuCollapsed, setShowMenuCollapsed] = useState(false);
   const currentPath = router.pathname;
+  const getMenuList = () => {
+    // TODO 使用远程查询
+    return MOKE_MENU;
+  };
+  const parseMenuLabel = (menuList: MenuItem[]) => {
+    const labels: MenuKeyLabel[] = [];
+    const roots: MenuKeyRoot[] = [];
+    menuList.forEach((m) => {
+      const key = m.link;
+      const label = m.label;
+      labels.push({ key, label });
+      if (m.children && m.children.length > 0) {
+        parseChildrenMenuLabel(labels, roots, m, m.children, key);
+      }
+    });
+    setMenuLables(labels);
+    setMenuRoots(roots);
+  };
+
+  const parseChildrenMenuLabel = (
+    labels: MenuKeyLabel[],
+    roots: MenuKeyRoot[],
+    m: MenuItem,
+    children: MenuItem[],
+    rootKey: string
+  ) => {
+    children.forEach((child) => {
+      const key = child.link; // m.key + "/" + child.key;
+      const label = child.label;
+      labels.push({ key, label });
+      roots.push({ key, rootKey });
+      if (child.children && child.children.length > 0) {
+        parseChildrenMenuLabel(labels, roots, child, child.children, rootKey);
+      }
+    });
+  };
 
   const getParentMenuKey = (path: string) => {
     const menuRoot = menuRoots.filter((m) => {
@@ -79,6 +114,8 @@ export const IndexFramework: React.FC<NormalLayoutProps> = ({ children }) => {
     });
     return menuRoot[0]?.rootKey;
   };
+
+  const menuList = getMenuList();
 
   const createTabList = () => {
     setOpenTab((t) => {

@@ -4,7 +4,7 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import React from "react";
-import { IndexFramework } from "../components/layout/IndexFramework";
+import { IndexFramework } from "../components/layout";
 import "@/common/styles/globals.css";
 import "antd/dist/antd.min.css";
 
