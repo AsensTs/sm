@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { MenuInfo } from "rc-menu/lib/interface";
 import { createFromIconfontCN } from "@ant-design/icons/lib";
 import MOKE_MENU from "@/config/menus";
+import HomeIndex from "../../pages/index";
 
 type Props = {
   children?: ReactNode;
@@ -41,6 +42,15 @@ const getIcon = (iconName: any): ReactNode => {
   return <IconFont type={iconName} style={{ fontSize: 20 }} />;
 };
 
+const defaultOpenTab: TabItem[] = [
+  {
+    key: "/",
+    title: "首页",
+    path: "/",
+    content: HomeIndex.call(this, {}, null),
+  },
+];
+
 export default function Menus({ children }: Props) {
     const router = useRouter();
     const [menus, setMenus] = useState<MenuItem[]>([]);
@@ -48,6 +58,8 @@ export default function Menus({ children }: Props) {
     const [menuLabels, setMenuLables] = useState<MenuKeyLabel[]>([]);
     const [selectedMenu, setSelectedMenu] = useState<string[]>(["/"]);
     const [openMenu, setOpenMenu] = useState<string[]>([]);
+    const [openTab, setOpenTab] = useState<TabItem[]>(defaultOpenTab);
+    const [activeTab, setActiveTab] = useState("/");
     const currentPath = router.pathname;
 
     const getParentMenuKey = (path: string) => {
