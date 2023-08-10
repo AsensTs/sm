@@ -19,8 +19,8 @@ const LoginPage = () => {
           <Form
             className="w-full"
             name="basic"
-            labelCol={{ span: 4 }}
-            wrapperCol={{ span: 20 }}
+            labelCol={{ span: 6 }}
+            wrapperCol={{ span: 18 }}
             initialValues={{ remember: true }}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
@@ -41,11 +41,19 @@ const LoginPage = () => {
             >
               <Input.Password></Input.Password>
             </Form.Item>
+            <Form.Item
+              label="验证码"
+              name="identifying"
+              rules={[{ required: true, message: "请输入验证码!" }]}
+            >
+              <Input></Input>
+            </Form.Item>
             <Form.Item wrapperCol={{ span: 24 }}>
               <Button type="primary" htmlType="submit" className="w-full">
                 登录
               </Button>
             </Form.Item>
+            
           </Form>
         </div>
       </div>

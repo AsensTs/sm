@@ -2,7 +2,7 @@ import React, { ReactNode, useEffect, useState } from 'react'
 import { Menu, MenuProps } from "antd";
 import { MenuInfo } from 'rc-menu/lib/interface';
 import { useRouter } from 'next/router';
-import MOKE_MENU from "@/config/menu-config"
+import { MOKE_MENU } from "@/config/menu-config"
 
 
 type Props = {}

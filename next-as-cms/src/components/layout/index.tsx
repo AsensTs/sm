@@ -9,7 +9,7 @@ import { MenuInfo } from "rc-menu/lib/interface";
 import React, { ReactElement, ReactNode, useEffect, useState } from "react";
 import HomeIndex from "../../pages/index";
 import { TabWindows } from "../base/TabWindows";
-import MOKE_MENU from "@/config/menu-config"
+import { MOKE_MENU } from "@/config/menu-config"
 const { Header, Content, Sider } = Layout;
 
 type MenuType = "ORIGIN" | "THIRD"; // 内部 ｜ 第三方

@@ -1,0 +1,28 @@
+server:
+  port: 11011
+
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://192.168.187.131:3306/sys?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yml
+        namespace: 84cecf64-9a32-49a2-8e11-8c050af746f4
+      gateway:
+        routes:
+          - id: admin_route
+            uri: lb://sm-fast
+            predicates:
+              - Path=/api/**
+            filters:
+              - RewritePath=/api/(?<segment>.*), /renren-fast/$\{segment}
+  application:
+    name: sm-gateway
+
