@@ -1,12 +1,12 @@
-package com.as.smfast.service;
+package com.as.smfast.modules.sys.service;
 
-import com.as.smfast.dao.UserDao;
+import com.as.smfast.modules.sys.dao.SysUserDao;
 
 import java.util.Map;
 
 
-public interface UserService {
-    UserDao login(Map<String, String> userInfo);
+public interface SysLoginService {
+    SysUserDao login(Map<String, String> userInfo);
 
     long register(Map<Object, Object> userInfo) throws Exception;
 

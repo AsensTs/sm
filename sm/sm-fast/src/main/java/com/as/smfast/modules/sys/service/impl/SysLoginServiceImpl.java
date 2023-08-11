@@ -1,8 +1,8 @@
-package com.as.smfast.service.impl;
+package com.as.smfast.modules.sys.service.impl;
 
-import com.as.smfast.dao.UserDao;
-import com.as.smfast.mapper.UserMapper;
-import com.as.smfast.service.UserService;
+import com.as.smfast.modules.sys.dao.SysUserDao;
+import com.as.smfast.modules.sys.mapper.SysLoginMapper;
+import com.as.smfast.modules.sys.service.SysLoginService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -10,14 +10,14 @@ import java.sql.SQLException;
 import java.util.Map;
 
 @Service
-public class UserServiceImpl implements UserService {
+public class SysLoginServiceImpl implements SysLoginService {
 
     @Resource
-    private UserMapper userLoginMapper;
+    private SysLoginMapper userLoginMapper;
 
     @Override
-    public UserDao login(Map<String, String> userInfo) {
-        UserDao userDao = userLoginMapper.loginByUser(userInfo);
+    public SysUserDao login(Map<String, String> userInfo) {
+        SysUserDao userDao = userLoginMapper.loginByUser(userInfo);
         return userDao;
     }
 

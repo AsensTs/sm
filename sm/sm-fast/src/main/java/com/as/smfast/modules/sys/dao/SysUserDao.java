@@ -1,11 +1,11 @@
-package com.as.smfast.dao;
+package com.as.smfast.modules.sys.dao;
 
 import lombok.Data;
 
 import java.util.Date;
 
 @Data
-public class UserDao {
+public class SysUserDao {
     private Long userId;
     /**
      * 用户名
