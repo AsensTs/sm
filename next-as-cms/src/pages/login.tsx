@@ -45,8 +45,12 @@ const LoginPage = () => {
               label="验证码"
               name="identifying"
               rules={[{ required: true, message: "请输入验证码!" }]}
+              wrapperCol={{ span: 8 }}
             >
-              <Input></Input>
+              <div className="flex">
+                <Input></Input>
+                <div></div>
+              </div>
             </Form.Item>
             <Form.Item wrapperCol={{ span: 24 }}>
               <Button type="primary" htmlType="submit" className="w-full">
