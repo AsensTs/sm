@@ -11,6 +11,10 @@ spring:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
+#        namespace: 84cecf64-9a32-49a2-8e11-8c050af746f4
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yml
   application:
     name: SmProductApplication
 

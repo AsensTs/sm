@@ -5,9 +5,9 @@ const { createProxyMiddleware } = require('http-proxy-middleware')
  
 const devProxy = {
     '/api': {
-        target: 'http://localhost:11008', // 端口自己配置合适的
+        target: 'http://localhost:11011', // 网关端口
         pathRewrite: {
-            '^/api': '/'
+            '^/api': '/api'
         },
         changeOrigin: true
     }

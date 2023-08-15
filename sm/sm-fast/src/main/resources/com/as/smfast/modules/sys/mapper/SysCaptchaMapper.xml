@@ -7,4 +7,8 @@
         insert into sys_captcha (uuid, code, expire_time)
         values (#{uuid}, #{code}, #{expireTime})
     </insert>
+
+    <select id="searchByUuid" parameterType="String" resultType="com.as.smfast.modules.sys.entity.SysCaptchaEntity">
+        select uuid, code, expire_time from sys_captcha where uuid = #{uuid}
+    </select>
 </mapper>

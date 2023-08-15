@@ -2,6 +2,8 @@ server:
   port: 11011
 
 spring:
+  main:
+    web-application-type: reactive
   datasource:
     username: root
     password: root
@@ -11,18 +13,26 @@ spring:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
+        namespace: 84cecf64-9a32-49a2-8e11-8c050af746f4
       config:
         server-addr: 127.0.0.1:8848
         file-extension: yml
-        namespace: 84cecf64-9a32-49a2-8e11-8c050af746f4
-      gateway:
-        routes:
-          - id: admin_route
-            uri: lb://sm-fast
-            predicates:
-              - Path=/api/**
-            filters:
-              - RewritePath=/api/(?<segment>.*), /renren-fast/$\{segment}
+    gateway:
+      routes:
+        - id: admin_route
+          uri: http://localhost:11008
+          predicates:
+            - Path=/api/**
+#          filters:
+#            - RewritePath=/api/(?<segment>.*), /$\{segment}
+
+        - id: product_route
+          uri: http://localhost:11004
+          predicates:
+            - Path=/api/product/**
+          filters:
+            - RewritePath=/api/product/(?<segment>.*), /$\{segment}
+
   application:
     name: sm-gateway
 
