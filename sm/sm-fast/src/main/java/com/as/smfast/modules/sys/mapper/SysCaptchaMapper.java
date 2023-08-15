@@ -6,4 +6,6 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface SysCaptchaMapper {
     long saveCaptcha(SysCaptchaEntity captchaEntity);
+
+    SysCaptchaEntity searchByUuid(String uuid);
 }

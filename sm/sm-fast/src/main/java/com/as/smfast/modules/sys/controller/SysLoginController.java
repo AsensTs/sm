@@ -48,7 +48,7 @@ public class SysLoginController {
     /**
      * 获取验证码
      * */
-    @GetMapping("captcha.jpg")
+    @GetMapping("api/captcha.jpg")
     private void captcha(HttpServletResponse response, String uuid) throws IOException {
         response.setHeader("Cache-Control", "no-store, no-cache");
         response.setContentType("image/jpeg");
@@ -65,8 +65,14 @@ public class SysLoginController {
      * 登录
      * @param userInfo 用户登录信息
      * */
-    @PostMapping("api/v1/login")
+    @PostMapping("api/login")
     private R login(@RequestBody Map<String, String> userInfo, HttpSession session) {
+        // 判断验证码是否正确
+        boolean validate = sysCaptchaService.validate(userInfo.get("uuid"), userInfo.get("code"));
+        if (!validate) {
+            return R.error("验证码不正确");
+        }
+
         SysUserDao userDao = sysLoginService.login(userInfo);
         String password = userDao.getPassword();
         String salt = password.split("\\$")[0];
@@ -82,7 +88,7 @@ public class SysLoginController {
      *  注册
      *  @param userInfo 用户注册信息
      * */
-    @PostMapping("/api/v1/register")
+    @PostMapping("/api/register")
     private R register(@RequestBody Map<Object, Object> userInfo) {
         // 查询用户是否存在
         Integer cr = sysLoginService.searchUserByUsername((String) userInfo.get("username"));

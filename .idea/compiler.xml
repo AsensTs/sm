@@ -17,17 +17,14 @@
         <module name="sm-common" />
         <module name="sm-cloud" />
         <module name="sm-ware" />
-        <module name="sm-product" />
-      </profile>
-      <profile name="Annotation profile for renren-generator" enabled="true">
-        <sourceOutputDir name="../target/generated-sources/annotations" />
-        <sourceTestOutputDir name="../target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
         <module name="renren-generator" />
+        <module name="sm-product" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="config" target="1.8" />
+      <module name="sm-gateways" target="1.8" />
+      <module name="sm-gatewayTest" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -42,6 +39,8 @@
       <module name="sm-coupon" options="-parameters" />
       <module name="sm-fast" options="-parameters" />
       <module name="sm-gateway" options="-parameters" />
+      <module name="sm-gatewayTest" options="-parameters" />
+      <module name="sm-gateways" options="-parameters" />
       <module name="sm-member" options="-parameters" />
       <module name="sm-order" options="-parameters" />
       <module name="sm-product" options="-parameters" />

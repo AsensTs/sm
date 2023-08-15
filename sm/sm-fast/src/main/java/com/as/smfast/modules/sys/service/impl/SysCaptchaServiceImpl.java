@@ -41,6 +41,12 @@ public class SysCaptchaServiceImpl implements SysCaptchaService {
 
     @Override
     public boolean validate(String uuid, String code) {
+
+        SysCaptchaEntity sysCaptchaEntity = sysCaptchaMapper.searchByUuid(uuid);
+
+        if (sysCaptchaEntity.getCode().equals(code)) {
+            return true;
+        }
         return false;
     }
 }
