@@ -1,15 +1,15 @@
-package com.as.smfast.mapper;
+package com.as.smfast.modules.sys.mapper;
 
-import com.as.smfast.dao.UserDao;
+import com.as.smfast.modules.sys.dao.SysUserDao;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.Map;
 
 @Mapper
-public interface UserMapper {
+public interface SysLoginMapper {
 
     // 登录
-    UserDao loginByUser(Map<String, String> userInfo);
+    SysUserDao loginByUser(Map<String, String> userInfo);
 
     // 注册
     Long registerUser(Map<Object, Object> userInfo);

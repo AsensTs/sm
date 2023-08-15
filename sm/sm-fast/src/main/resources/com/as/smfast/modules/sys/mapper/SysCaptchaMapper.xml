@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.as.smfast.modules.sys.mapper.SysCaptchaMapper">
+    <insert id="saveCaptcha" parameterType="java.util.Map">
+        insert into sys_captcha (uuid, code, expire_time)
+        values (#{uuid}, #{code}, #{expireTime})
+    </insert>
+</mapper>

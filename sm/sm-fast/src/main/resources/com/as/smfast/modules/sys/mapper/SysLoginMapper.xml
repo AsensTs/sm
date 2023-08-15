@@ -2,8 +2,8 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.as.smfast.mapper.UserMapper">
-    <select id="loginByUser" parameterType="java.util.Map" resultType="com.as.smfast.dao.UserDao">
+<mapper namespace="com.as.smfast.modules.sys.mapper.SysLoginMapper">
+    <select id="loginByUser" parameterType="java.util.Map" resultType="com.as.smfast.modules.sys.dao.SysUserDao">
         select user_id,username,password,email,mobile,status,create_time from sys_user where username = #{username};
     </select>
     <select id="searchUserByUsername" resultType="java.lang.Integer">

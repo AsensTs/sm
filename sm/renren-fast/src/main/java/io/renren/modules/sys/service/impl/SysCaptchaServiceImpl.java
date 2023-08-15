@@ -11,7 +11,7 @@ package io.renren.modules.sys.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.google.code.kaptcha.Producer;
+    import com.google.code.kaptcha.Producer;
 import io.renren.common.exception.RRException;
 import io.renren.common.utils.DateUtils;
 import io.renren.modules.sys.dao.SysCaptchaDao;

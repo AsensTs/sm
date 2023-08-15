@@ -13,17 +13,17 @@
         <module name="sm-order" />
         <module name="sm-member" />
         <module name="sm-fast" />
+        <module name="renren-fast" />
         <module name="sm-common" />
         <module name="sm-cloud" />
         <module name="sm-ware" />
         <module name="sm-product" />
-        <module name="renren-generator" />
       </profile>
-      <profile name="Annotation profile for sm" enabled="true">
+      <profile name="Annotation profile for renren-generator" enabled="true">
         <sourceOutputDir name="../target/generated-sources/annotations" />
         <sourceTestOutputDir name="../target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="renren-fast" />
+        <module name="renren-generator" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

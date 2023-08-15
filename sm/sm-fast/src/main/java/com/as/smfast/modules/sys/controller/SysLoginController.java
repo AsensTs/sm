@@ -1,12 +1,13 @@
-package com.as.smfast.controller;
+package com.as.smfast.modules.sys.controller;
 
 import com.as.sm.common.exception.RRException;
 import com.as.sm.common.utils.PasswordTools;
 import com.as.sm.common.utils.R;
-import com.as.smfast.dao.UserDao;
-import com.as.smfast.service.UserService;
+import com.as.smfast.modules.sys.dao.SysUserDao;
+import com.as.smfast.modules.sys.service.SysCaptchaService;
+import com.as.smfast.modules.sys.service.SysLoginService;
 
-import feign.Param;
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.ScopedProxyMode;
@@ -16,17 +17,25 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import javax.imageio.ImageIO;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 
 @RestController
 @RefreshScope(proxyMode = ScopedProxyMode.DEFAULT)
-public class UserController {
+public class SysLoginController {
 
     @Resource
-    private UserService userLoginService;
+    private SysLoginService sysLoginService;
+    
+    @Resource
+    private SysCaptchaService sysCaptchaService;
 
     @Value("${config.msg}")
     private String msg;
@@ -36,9 +45,29 @@ public class UserController {
         return R.ok().put("msg", msg);
     }
 
+    /**
+     * 获取验证码
+     * */
+    @GetMapping("captcha.jpg")
+    private void captcha(HttpServletResponse response, String uuid) throws IOException {
+        response.setHeader("Cache-Control", "no-store, no-cache");
+        response.setContentType("image/jpeg");
+
+        // 获取图片验证码
+        BufferedImage image = sysCaptchaService.getCaptcha(uuid);
+
+        ServletOutputStream out = response.getOutputStream();
+        ImageIO.write(image, "jpg", out);
+        IOUtils.closeQuietly(out);
+    }
+
+    /**
+     * 登录
+     * @param userInfo 用户登录信息
+     * */
     @PostMapping("api/v1/login")
     private R login(@RequestBody Map<String, String> userInfo, HttpSession session) {
-        UserDao userDao = userLoginService.login(userInfo);
+        SysUserDao userDao = sysLoginService.login(userInfo);
         String password = userDao.getPassword();
         String salt = password.split("\\$")[0];
         if (PasswordTools.encrypt(userInfo.get("password"), salt).equals(userDao.getPassword())) {
@@ -49,10 +78,14 @@ public class UserController {
         return R.ok("登录失败").put("data", false).put("code", 401);
     }
 
+    /**
+     *  注册
+     *  @param userInfo 用户注册信息
+     * */
     @PostMapping("/api/v1/register")
     private R register(@RequestBody Map<Object, Object> userInfo) {
         // 查询用户是否存在
-        Integer cr = userLoginService.searchUserByUsername((String) userInfo.get("username"));
+        Integer cr = sysLoginService.searchUserByUsername((String) userInfo.get("username"));
         if (cr != null) {
             return R.ok("用户已存在").put("data", false);
         }
@@ -82,7 +115,7 @@ public class UserController {
         // 插入并返回结果
         long r = 0;
         try {
-            r = userLoginService.register(map);
+            r = sysLoginService.register(map);
         } catch (Exception e) {
             throw new RRException(e.getMessage(), 500);
         }
@@ -99,7 +132,7 @@ public class UserController {
 
     @PostMapping("/api/v1/check")
     private R check(@RequestBody Map<String, String> params) {
-        Integer cr = userLoginService.check(params.get("username"));
+        Integer cr = sysLoginService.check(params.get("username"));
         if (cr != null) {
             return R.ok("用户已存在").put("data", false).put("code", 200);
         }
