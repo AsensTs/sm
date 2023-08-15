@@ -337,7 +337,7 @@ export const IndexFramework: React.FC<NormalLayoutProps> = ({ children }) => {
             </>
           )}
         </Sider>
-        <Layout className="pl-2 pr-2 pb-4">
+        <Layout className="pr-2 pb-4">
           <Header className="m-0 border-b !bg-white">
             <div className="float-right mx-auto mt-3 flex h-10 w-10">
               <Avatar src="https://joeschmoe.io/api/v1/random" />

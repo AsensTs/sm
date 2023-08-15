@@ -109,6 +109,24 @@ const MOKE_MENU: MenuItem[] = [
       },
     ],
   },
+  {
+    id: 3,
+    key: "/product",
+    label: "商品管理",
+    icon: getIcon("icon-home"),
+    link: "/product",
+    type: "ORIGIN",
+    children: [
+      {
+        id: 3001,
+        key: "/product/classify",
+        label: "商品分类",
+        icon: getIcon("icon-nickname"),
+        link: "/product/classify",
+        type: "ORIGIN",
+      },
+    ],
+  },
 ];
 
 
