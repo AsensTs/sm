@@ -63,6 +63,11 @@ const handleCheckUsername = async (rules: any, value: any, callback: any) => {
   callback();
 }
 
+// 更换验证码
+const onChangeCaptcha = () => {
+  console.log("更换验证码");
+}
+
 const LoginPage = () => {
   const [imgSrc, setImgSrc] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);

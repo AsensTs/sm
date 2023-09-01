@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 import { MenuInfo } from "rc-menu/lib/interface";
 import React, { ReactElement, ReactNode, useEffect, useState } from "react";
 import HomeIndex from "../../pages/index";
-import { TabWindows } from "../base/TabWindows";
+import { TabWindows } from "@/components/base/TabWindows";
 import { MOKE_MENU } from "@/config/menu-config"
 const { Header, Content, Sider } = Layout;
 
@@ -250,13 +250,13 @@ export const IndexFramework: React.FC<NormalLayoutProps> = ({ children }) => {
             </>
           )}
         </Sider>
-        <Layout className="pl-2 pr-2 pb-4">
+        <Layout>
           <Header className="m-0 border-b !bg-white">
             <div className="float-right mx-auto mt-3 flex h-10 w-10">
               <Avatar src="https://joeschmoe.io/api/v1/random" />
             </div>
           </Header>
-          <Content className="min-h-[280] w-full scroll-smooth bg-white p-3">
+          <Content className="min-h-[280] w-full scroll-smooth bg-white">
             <TabWindows
               activeTab={activeTab}
               openTab={openTab}
