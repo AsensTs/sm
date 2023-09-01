@@ -1,7 +1,7 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "./antd.css";
 
 /* 解决 antd 按钮使用 icon 不居中的问题  */
 svg {

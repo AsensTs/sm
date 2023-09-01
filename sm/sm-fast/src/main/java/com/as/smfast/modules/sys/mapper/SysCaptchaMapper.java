@@ -8,4 +8,6 @@ public interface SysCaptchaMapper {
     long saveCaptcha(SysCaptchaEntity captchaEntity);
 
     SysCaptchaEntity searchByUuid(String uuid);
+
+    long delByUuid(String uuid);
 }

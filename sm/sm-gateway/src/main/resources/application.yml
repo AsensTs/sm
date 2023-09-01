@@ -22,16 +22,16 @@ spring:
         - id: admin_route
           uri: http://localhost:11008
           predicates:
-            - Path=/api/**
-#          filters:
-#            - RewritePath=/api/(?<segment>.*), /$\{segment}
+            - Path=/api/sys/**
+          filters:
+            - RewritePath=/api/sys/(?<segment>.*), /api/$\{segment}
 
         - id: product_route
           uri: http://localhost:11004
           predicates:
             - Path=/api/product/**
           filters:
-            - RewritePath=/api/product/(?<segment>.*), /$\{segment}
+            - RewritePath=/api/product/(?<segment>.*), /product/$\{segment}
 
   application:
     name: sm-gateway

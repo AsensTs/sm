@@ -11,4 +11,8 @@
     <select id="searchByUuid" parameterType="String" resultType="com.as.smfast.modules.sys.entity.SysCaptchaEntity">
         select uuid, code, expire_time from sys_captcha where uuid = #{uuid}
     </select>
+
+    <delete id="delByUuid" parameterType="String">
+        delete from sys_captcha where uuid = #{uuid}
+    </delete>
 </mapper>

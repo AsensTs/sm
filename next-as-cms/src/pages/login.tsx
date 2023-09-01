@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 // 登录确认
 const login = async (values: any, router: any) => {
   try {
-      let res = await http.post("/api/login", values);
+      let res = await http.post("/api/sys/login", values);
       console.log(res);
       if (res.code == 200) {
           message.success("登录成功！");
@@ -28,7 +28,7 @@ const onFinishFailed = (errorInfo: any) => {
 
 const registerUser = async (values: any, fn: Function) => {
   try {
-      let res = await http.post("/api/register", values);
+      let res = await http.post("/api/sys/register", values);
       if (res.code == 200) {
           message.success(res.message);
           fn(false);
@@ -43,7 +43,7 @@ const registerUser = async (values: any, fn: Function) => {
 
 const checkUsername = async (value: any) => {
   try {
-      let res = await http.post("/api/check", {
+      let res = await http.post("/api/sys/check", {
           username: value
       });
       
@@ -99,11 +99,11 @@ const LoginPage = () => {
 
   // 更换验证码
   const onChangeCaptcha = () => {
-    setImgSrc(`/api/captcha.jpg?uuid=${getUuidInLogin()}`);
+    setImgSrc(`/api/sys/captcha.jpg?uuid=${getUuidInLogin()}`);
   }
   
   useEffect(() => {
-    setImgSrc(`/api/captcha.jpg?uuid=${getUuidInLogin()}`);
+    setImgSrc(`/api/sys/captcha.jpg?uuid=${getUuidInLogin()}`);
   }, [])
 
   return (

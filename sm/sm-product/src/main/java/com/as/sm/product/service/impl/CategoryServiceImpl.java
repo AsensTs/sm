@@ -39,7 +39,7 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
     public List<CategoryEntity> getAllCategory() {
         List<CategoryEntity> categoryEntities = baseMapper.selectList(null);
         List<CategoryEntity> firstMenus = categoryEntities.stream()
-                .filter(item -> item.getParentCid() == (0))
+                .filter(item -> item.getParentCid() == 0)
                 .peek(menu -> menu.setChildren(getChildren(menu, categoryEntities)))
                 .collect(Collectors.toList());
         return firstMenus;

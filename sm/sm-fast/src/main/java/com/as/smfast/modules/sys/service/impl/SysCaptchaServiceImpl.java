@@ -14,6 +14,8 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.awt.image.BufferedImage;
 import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
 @Service
 public class SysCaptchaServiceImpl implements SysCaptchaService {
@@ -36,6 +38,18 @@ public class SysCaptchaServiceImpl implements SysCaptchaService {
         sysCaptchaEntity.setExpireTime(DateUtils.addMinutes(new Date(), 5));
 
         long r = sysCaptchaMapper.saveCaptcha(sysCaptchaEntity);
+
+        // 1分钟后删除验证码
+        Timer timer = new Timer();
+        TimerTask timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                sysCaptchaMapper.delByUuid(uuid);
+            }
+        };
+        timer.schedule(timerTask, 5 * 60 * 1000);
+
+
         return producer.createImage(code);
     }
 
@@ -45,6 +59,7 @@ public class SysCaptchaServiceImpl implements SysCaptchaService {
         SysCaptchaEntity sysCaptchaEntity = sysCaptchaMapper.searchByUuid(uuid);
 
         if (sysCaptchaEntity.getCode().equals(code)) {
+            sysCaptchaMapper.delByUuid(uuid);
             return true;
         }
         return false;

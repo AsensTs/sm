@@ -73,6 +73,8 @@ public class SysLoginController {
             return R.error("验证码不正确");
         }
 
+        // 删除验证码
+
         SysUserDao userDao = sysLoginService.login(userInfo);
         String password = userDao.getPassword();
         String salt = password.split("\\$")[0];

@@ -27,7 +27,7 @@ import com.as.sm.common.utils.R;
  * @date 2023-05-18 16:58:56
  */
 @RestController
-@RequestMapping("product/category")
+@RequestMapping("/product/category")
 public class CategoryController {
     @Autowired
     private CategoryService categoryService;
@@ -41,7 +41,6 @@ public class CategoryController {
         List<CategoryEntity> allCategory = categoryService.getAllCategory();
         return R.ok().put("data", allCategory);
     }
-
 
     /**
      * 信息

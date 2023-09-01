@@ -34,7 +34,7 @@ const MOKE_MENU: MenuItem[] = [
     type: "ORIGIN",
   },
   {
-    id: 1,
+    id: 1000,
     key: "/system",
     label: "系统管理",
     icon: getIcon("icon-home"),
@@ -84,7 +84,25 @@ const MOKE_MENU: MenuItem[] = [
     ],
   },
   {
-    id: 2,
+    id: 2000,
+    key: "/product",
+    label: "商品系统",
+    icon: getIcon("icon-home"),
+    link: "/product",
+    type: "ORIGIN",
+    children: [
+      {
+        id: 2001,
+        key: "/product/category",
+        label: "分类维护",
+        icon: getIcon("icon-nickname"),
+        link: "/product/category",
+        type: "ORIGIN",
+      },
+    ]
+  },
+  {
+    id: 3000,
     key: "/authority",
     label: "权限管理",
     icon: getIcon("icon-home"),
@@ -92,7 +110,7 @@ const MOKE_MENU: MenuItem[] = [
     type: "ORIGIN",
     children: [
       {
-        id: 2001,
+        id: 3001,
         key: "/authority/user",
         label: "用户管理",
         icon: getIcon("icon-nickname"),
@@ -100,14 +118,14 @@ const MOKE_MENU: MenuItem[] = [
         type: "ORIGIN",
       },
       {
-        id: 2002,
+        id: 3002,
         key: "/authority/role",
         label: "角色管理",
         icon: getIcon("icon-addresslist"), //React.createElement(TeamOutlined),
         link: "/authority/role",
         type: "ORIGIN",
-      },
-    ],
+      }
+    ]
   },
 ];
 
